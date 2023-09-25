@@ -169,7 +169,162 @@ pyLDAvis.enable_notebook()
 vis = pyLDAvis.gensim_models.prepare(ldamodel, corpus, dictionary)
 pyLDAvis.display(vis)
 ```
+![image](https://github.com/Junoflows/NPL_Clustering_LDA/assets/108385417/0ced5e8d-6b26-4671-9255-25d595058820)
 
 
 
++ 이 토픽별 단어 중요도를 확인한 후 직접 라벨링 해주었습니다.  
+Business, Entertainment, Politics, Sports, Tech, World  
+Politics - 4 <br/>
+Tech - 0 <br/>
+Sports - 1 <br/>
+Business - 2 <br/>
+World - 3 <br/>
+Entertainment - 5 <br/>
+
++ 문서별 토픽 비율과 best 토픽을 열로 추가하였습니다.
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>num</th>
+      <th>best_topic</th>
+      <th>best_topic_rate</th>
+      <th>topic_rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>3</td>
+      <td>0.3871</td>
+      <td>[(3, 0.38706496), (1, 0.30021867), (4, 0.16776...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>0.7737</td>
+      <td>[(1, 0.77370757), (3, 0.1520915), (0, 0.018572...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>0</td>
+      <td>0.5535</td>
+      <td>[(0, 0.55345213), (1, 0.2692915), (5, 0.131465...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>0</td>
+      <td>0.7849</td>
+      <td>[(0, 0.7848793), (2, 0.14836921), (4, 0.016694...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>0</td>
+      <td>0.8331</td>
+      <td>[(0, 0.8331153), (1, 0.033446807), (4, 0.03343...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>59995</th>
+      <td>59995</td>
+      <td>1</td>
+      <td>0.5471</td>
+      <td>[(1, 0.5470573), (4, 0.38566053), (3, 0.016893...</td>
+    </tr>
+    <tr>
+      <th>59996</th>
+      <td>59996</td>
+      <td>2</td>
+      <td>0.5543</td>
+      <td>[(2, 0.55431587), (3, 0.29467893), (0, 0.11966...</td>
+    </tr>
+    <tr>
+      <th>59997</th>
+      <td>59997</td>
+      <td>1</td>
+      <td>0.4721</td>
+      <td>[(1, 0.47208622), (0, 0.29982916), (5, 0.18620...</td>
+    </tr>
+    <tr>
+      <th>59998</th>
+      <td>59998</td>
+      <td>2</td>
+      <td>0.8808</td>
+      <td>[(2, 0.88078445), (4, 0.023868008), (0, 0.0238...</td>
+    </tr>
+    <tr>
+      <th>59999</th>
+      <td>59999</td>
+      <td>5</td>
+      <td>0.7618</td>
+      <td>[(5, 0.76178455), (2, 0.1047389), (1, 0.097624...</td>
+    </tr>
+  </tbody>
+</table>
+<p>60000 rows × 4 columns</p>
+</div>
+
++ 원래 데이터에 best 토픽 추가하고 카테고리 이름을 주어진 형식으로 재설정해주었습니다.  
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>contents</th>
+      <th>tfidf_tokens</th>
+      <th>best_topic_rate</th>
+      <th>topic</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>madrid afp spanish national team coach luis ar...</td>
+      <td>[afp, arsenal, coach, comment, decided, face, ...</td>
+      <td>0.3871</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>bosnia one man hero often another man villain ...</td>
+      <td>[citizen, decided, great, hero, lee, look, man...</td>
+      <td>0.7737</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>yasmine hamdan performs hal also sings film sc...</td>
+      <td>[begin, continue, creation, film, living, myst...</td>
+      <td>0.5535</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>macromedia announced special version contribut...</td>
+      <td>[announced, application, creation, designed, e...</td>
+      <td>0.7849</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>overtheair fix cell phone come qualcomms cdma</td>
+      <td>[cell, come, fix, phone]</td>
+      <td>0.8331</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
